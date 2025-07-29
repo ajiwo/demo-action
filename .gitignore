@@ -61,3 +61,5 @@ tmp/
 # Local development files
 *.local
 
+tmp_*
+
