@@ -1,6 +1,10 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+
+	_ "golang.org/x/text"
+)
 
 func main() {
 	fmt.Println("v0.0.1")
