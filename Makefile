@@ -2,6 +2,7 @@
 BINARY_NAME=demo
 BUILD_DIR=build
 CMD_DIR=cmd
+GOLANGCI_LINT=golangci-lint
 
 # Go parameters
 GOCMD=go
@@ -12,6 +13,7 @@ GOGET=$(GOCMD) get
 GOMOD=$(GOCMD) mod
 GOFMT=$(GOCMD) fmt
 GOVET=$(GOCMD) vet
+LINTER=$(GOLANGCI_LINT) run
 
 # Build targets for different platforms
 PLATFORMS=linux/amd64 darwin/amd64 darwin/arm64 windows/amd64
@@ -22,7 +24,7 @@ PLATFORMS=linux/amd64 darwin/amd64 darwin/arm64 windows/amd64
 all: ci
 
 # CI target - runs all checks and tests
-ci: fmt vet tidy test build
+ci: fmt vet tidy lint test build
 
 # Run tests
 test:
@@ -48,6 +50,10 @@ vet:
 # Tidy dependencies
 tidy:
 	$(GOMOD) tidy
+
+# lint
+lint:
+	$(LINTER)
 
 # Build for all platforms (used by release workflow)
 build-all: clean
