@@ -52,6 +52,3 @@ jobs:
         with:
           files: |
             build/demo-linux-amd64
-            build/demo-darwin-amd64
-            build/demo-darwin-arm64
-            build/demo-windows-amd64.exe
