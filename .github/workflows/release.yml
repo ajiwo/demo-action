@@ -1,7 +1,6 @@
 name: Release
 permissions:
-  contents: write
-  packages: write
+  contents: read
 
 on:
   push:
@@ -11,6 +10,8 @@ on:
 jobs:
   release:
     name: Release
+    permissions:
+      packages: write
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
