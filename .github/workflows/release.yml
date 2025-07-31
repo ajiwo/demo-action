@@ -1,6 +1,4 @@
 name: Release
-permissions:
-  contents: read
 
 on:
   push:
@@ -11,6 +9,7 @@ jobs:
   release:
     name: Release
     permissions:
+      contents: write
       packages: write
     runs-on: ubuntu-latest
     steps:
@@ -52,3 +51,4 @@ jobs:
         with:
           files: |
             build/demo-linux-amd64
+
